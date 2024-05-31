@@ -90,6 +90,7 @@ dx_step_start:		;$8033
 
 	;else X1 is larger or equal
 	jp positiveDX
+
 dx_step_end:
 ;<-------------------------------------------------
 ; stepx has answer -1 if X2 is larger
@@ -103,14 +104,13 @@ dy_step_start:
 	ld HL, (line_y2)     ; load point X2
     ld DE, (line_y1)     ; load point X1
     sbc HL, DE          ; x2 - x1 answer in HL
-	
-
 
 	;if carry flag is set, then Y2 is larger
 	jp c, negativeDY
 
 	;else Y1 is larger or equal
 	jp positiveDY
+
 dy_step_end:
 ;<-------------------------------------------------
 
@@ -132,10 +132,7 @@ DYorDY_start:		;$805D
 						;if so the DY larger
 						;$9300
 
-
 end_bresenham:
-	jr end_bresenham
-
 
 ret
 	

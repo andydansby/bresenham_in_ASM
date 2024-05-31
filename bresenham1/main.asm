@@ -6,3 +6,5 @@ include "dx_larger.asm"
 include "dy_larger.asm"
 include "variables.asm"
 
+; end_of_everything = $81EB 
+; 491 bytes

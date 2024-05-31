@@ -37,6 +37,7 @@ end_DY_larger	EQU 081BEH
 end_bresenham	EQU 0806AH
 end_inital_fraction_calculation1 EQU 080D4H
 end_inital_fraction_calculation2 EQU 08151H
+end_of_everything EQU 081EBH
 fin1		EQU 08144H
 fin2		EQU 081C1H
 fraction	EQU 081D1H

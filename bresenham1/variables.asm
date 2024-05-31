@@ -46,3 +46,6 @@ gfx_y:		defw 0000
 PUBLIC X_PositionBits	;$80A4
 X_PositionBits:
 defb 128,64,32,16,8,4,2,1
+
+
+end_of_everything:
