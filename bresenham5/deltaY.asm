@@ -23,7 +23,6 @@ deltaY_case:			;08118H
 	ld (line_x1), HL
 ;;answer in HL and pass to variable
 
-
 	jp check_deltaX
 
 	;OK
