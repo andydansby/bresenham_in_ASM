@@ -187,12 +187,14 @@ calculate_error1:		;
 ; error1 is the answer
 ;<-------------------------------------------------
 
-initilize_error2:		;$8065
+
+
+;initilize_error2:		;$8065
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;int error2 = 0;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	ld HL, 0000
-	ld (error2), HL
+;	ld HL, 0000
+;	ld (error2), HL
 
 
 	;finished initializing variables
