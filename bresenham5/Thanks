@@ -1,0 +1,7 @@
+I was having issue with comparing x1 & x2 with Y1 & Y2.  Clive Townsend helped me with that code.
+
+The ABS HL routine I found at http://z80-heaven.wikidot.com/math#toc12
+
+The remaining code is a translation of the Line Routine found on Wikipedia.  I wrote the remaining code.
+
+Still looking to reduce the size, now at 323 Bytes
