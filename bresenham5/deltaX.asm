@@ -1,8 +1,7 @@
-deltaX_case:			;080FFH
+deltaX_case:			;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;error1 += deltaX;
-;error1 = error1 + deltaX;
+;error1 += deltaX;		;error1 = error1 + deltaX;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	ld HL, (error1)
 	ld DE, (deltaX)
@@ -23,7 +22,4 @@ deltaX_case:			;080FFH
 	ld (line_y1), HL
 ;;answer in HL and pass to variable
 
-
 	jp finished_Delta_check
-	
-	;NOT OK

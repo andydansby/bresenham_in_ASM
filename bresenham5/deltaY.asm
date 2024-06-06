@@ -1,8 +1,7 @@
-deltaY_case:			;08118H
+deltaY_case:			;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;error1 += deltaY;
-; error1 = error1 + deltaY
+;error1 += deltaY;		; error1 = error1 + deltaY
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
 	ld HL, (error1)
 	ld DE, (deltaY)
@@ -24,5 +23,3 @@ deltaY_case:			;08118H
 ;;answer in HL and pass to variable
 
 	jp check_deltaX
-
-	;OK
