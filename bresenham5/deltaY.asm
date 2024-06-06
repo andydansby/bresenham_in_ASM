@@ -1,5 +1,5 @@
-deltaY_case:			;
-
+deltaY_case:			;0810EH
+;moves via the X Axis
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;error1 += deltaY;		; error1 = error1 + deltaY
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
