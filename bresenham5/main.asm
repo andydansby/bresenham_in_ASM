@@ -1,11 +1,20 @@
 org	$8000
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; code written by Andrew Dansby
+; Based on the Wikipedia routine
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 include "bresenham.asm"
 include "routines.asm"
 include "DXDY.asm"
 include "deltaX.asm"
 include "deltaY.asm"
 include "variables.asm"
+
+
+
+
 
 ;before optimization 1 491 bytes
 
@@ -21,4 +30,4 @@ include "variables.asm"
 ; end_of_everything $81BB after optimization 3
 ; 443 bytes
 
-;now at 431 bytes
+;now at 333 bytes

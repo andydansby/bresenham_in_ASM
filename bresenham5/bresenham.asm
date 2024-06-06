@@ -1,8 +1,5 @@
 start:
 
-	;attention temp
-	; only used for testing, not final code
-	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; in variables.asm
 ; you will find x1, y1, x2 and y2
@@ -13,7 +10,7 @@ start:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-DX_step_start:		;
+DX_step_start:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;int stepX = (x1 < x2) ? 1 : -1;
 ;if x1 larger stepX = -1
@@ -67,9 +64,8 @@ DY_step_end:
 ; stepY has answer -1 if Y2 is larger
 ; stepY has answer  1 if Y1 is larger or equal
 ;<-------------------------------------------------
-;seems good
 
-dx_abs_start:							;08022H
+dx_abs_start:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; int dx = abs(x2 - x1);
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -89,10 +85,7 @@ dx_abs_start:							;08022H
 ; dxABS is the answer int dx = Math.Abs(x2 - x1);
 ;<-------------------------------------------------
 
-
-
-
-dy_abs_start:		;
+dy_abs_start:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; int dy = abs(y2 - y1);
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -141,6 +134,9 @@ calculate_error1:		;
 	jp DXDY_loop
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;Line is now complete
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 end_bresenham:
 
 ret
