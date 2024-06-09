@@ -5,12 +5,7 @@ start:
 ; you will find x1, y1, x2 and y2
 ; as
 ; line_x1, line_y1, line_x2, line_y1
-; those variables are the start and end
-; points of the line you want to draw
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; plot_x, plot_y as used exclusively for
+; gfx_x, gfx_y as used exclusively for
 ; _joffa_pixel2
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -115,7 +110,7 @@ invert_deltaY:
 	ld (deltaY), HL
 
 
-calculate_error1:
+calculate_error1:		;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;int error1 = deltaX + deltaY;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -136,8 +131,7 @@ calculate_error1:
 	;lets start our loop
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-	;jp DXDY_loop
-	jr DXDY_loop
+	jp DXDY_loop
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

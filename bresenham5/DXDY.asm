@@ -2,10 +2,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;while (1)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-DXDY_loop:
+DXDY_loop:				;$80C1
 
 while1:
 
+
+;plot(x1, y1)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;plot the pixel x1, y1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -58,7 +60,7 @@ X1X2_Y1Y2_match:
 	jp end_bresenham
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
-X1X2_Y1Y2_no_match:
+X1X2_Y1Y2_no_match:		;
 	;if the two do not match, then we are not finished we need the next position
 	;fall through
 
@@ -86,14 +88,16 @@ check_deltaY:
 	;xor A			;clear flags
 	sbc HL, DE
 	
-	;is sign flag is ON, then deltaY is larger
-	jp m, deltaY_larger		;sign flag is ON
-
 	;if sign flag is OFF, then error2 is larger
 	jp p, deltaY_case			;sign flag is OFF
 	
 	;if Zero flag is ON, then error2 is equal to deltaY
     jp z, deltaY_case
+	
+	;is sign flag is ON, then deltaY is larger
+	;jp m, deltaY_larger		;sign flag is ON
+	;optimized out, just fall through
+	
 
 deltaY_larger:
 check_deltaX:
@@ -107,16 +111,15 @@ check_deltaX:
 	;xor A			;clear flags
 	sbc HL, DE
 
-
 	;if sign flag is OFF, then error2 is larger
 	jp p, deltaX_case			;sign flag is OFF
 	
 	;if Zero flag is ON, then error2 is equal to deltaY
     jp z, deltaX_case
 	
-	;if sign flag is ON, then deltaY is larger
+	;is sign flag is ON, then deltaY is larger
 	;jp m, finished_Delta_check		;sign flag is ON
-
+	;optimized out, just fall through
 
 finished_Delta_check:
 
