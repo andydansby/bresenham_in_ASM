@@ -57,7 +57,14 @@ X1X2_Y1Y2_match:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;break
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	jp end_bresenham
+	;jp end_bresenham
+	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;Line is now complete
+;since both x1 & x2  and Y1 & y2 match
+;the line is now finished drawing
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ret
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
 X1X2_Y1Y2_no_match:		;

@@ -21,12 +21,12 @@ absHL:
     bit 7,h
     ret z
     
-    xor a
-    sub l
-    ld l,a
-    sbc a,a
-    sub h
-    ld h,a
+    xor A
+    sub L
+    ld L, A
+    sbc A, A
+    sub H
+    ld H, A
 ret
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -41,12 +41,9 @@ _joffa_pixel2:
 	ld A, (plot_y)
 	ld D, A
 
-    ;ld a, d	;no need for this
-
     rrca
     rrca
     rrca
-
 
     and %00011000   ;24 = 0x18
     or  %01000000   ;64 = 0x40
