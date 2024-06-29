@@ -4,7 +4,7 @@ conversion of Bresenham routine from C to Z80 ASM
 
 Versions 1 to 3 are the same algorythm with each higher version a more optimized version of the prior
 
-** Version 1 is 491 bytes.
+** Version 1 is 489 bytes.
 
 ** Version 2 is 456 bytes
 
