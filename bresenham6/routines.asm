@@ -108,7 +108,7 @@ Plot_a_Pixel:
 	ld A, (line_x1)
 	ld (plot_x), A
 	
-	call _joffa_pixel2
+	jr _joffa_pixel2
 ret
 
 
