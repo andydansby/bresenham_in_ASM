@@ -23,3 +23,9 @@ Versions 4 and 5 are different algorythms altogether which are considerbly small
 Version 6 is a different algorythm
 
 ** Version 6 is 416 bytes
+<ATTENTION> version 6 is buggy.  
+line_x1:	defw 20	;$8080 line start pointX
+line_y1:	defw 30	;$8082 line start pointY
+line_x2:	defw 10	;$8084 line end point X
+line_y2:	defw 21	;$8086 line end point Y
+crashes
