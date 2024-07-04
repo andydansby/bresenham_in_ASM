@@ -20,9 +20,9 @@ Versions 4 and 5 are different algorythms altogether which are considerbly small
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-Version 6 is a different algorythm
+Version 6 is a different algorythm, smaller than versions 1-3
 
-** Version 6 is 412 bytes
+** Version 6 is 414 bytes
 
 <ATTENTION> version 6 is buggy.  
 
