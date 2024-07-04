@@ -5,6 +5,7 @@ DXDY_loop:				;$8093
 ;	if (delta_x1 > delta_y1)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;check for DeltaX
 	ld HL, (deltaX)
 	ld DE, (deltaY)
 	xor A				; clear flags
@@ -15,7 +16,7 @@ DXDY_loop:				;$8093
 	
 end_deltaX:
 	
-	
+;check for DeltaY	
 	;jp m, deltaY_larger_loop
 	jp m, deltaY_case
 	; if sign flag is set

@@ -1,8 +1,22 @@
 
-line_x1:	defw 0	;$8080 line start pointX
-line_y1:	defw 0	;$8082 line start pointY
-line_x2:	defw 10	;$8084 line end point X
-line_y2:	defw 50	;$8086 line end point Y
+;fails at DX majority
+;line_x1 = 20
+;line_y1 = 30
+;line_x2 = 10
+;line_y2 = 21
+
+;fails at DY majority
+;line_x1 = 30
+;line_y1 = 20
+;line_x2 = 21
+;line_y2 = 10
+
+
+
+line_x1:	defw 20	;$8080 line start pointX
+line_y1:	defw 30	;$8082 line start pointY
+line_x2:	defw 17	;$8084 line end point X
+line_y2:	defw 27	;$8086 line end point Y
 
 	
 deltaX:		defw 0000;

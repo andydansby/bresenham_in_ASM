@@ -1,4 +1,4 @@
-deltaY_case:			;$811D
+deltaY_case:			;$8122
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	if (delta_y >= delta_x)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -15,15 +15,15 @@ deltaY_case:			;$811D
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;delta_y >> 1
 ;DIVIDE BY 2
-	ld DE, (deltaY)
+	ld DE, (deltaY)		;deltaY is 16 bit
 	srl D
 	rr E
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	xor A				;reset Flags
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	ld HL, (deltaX)
+	ld HL, (deltaX)		;deltaX is 16 bit
 	sbc HL, DE			; deltaY - deltaX 
-	ld (fraction), HL
+	ld (fraction), HL	;fraction is 16 bit
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -36,21 +36,12 @@ deltaY_case:			;$811D
 ; Loop 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 deltaYWhile:	;$8151
-	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	;	while (xx1 != xx2)
-	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	;ld HL, (line_x1)
-	;ld DE, (line_x2)
-	ld HL, (line_y2)
-	ld DE, (line_y1)
-	xor A				;reset Flags
-	sbc HL, DE			;compare the 2
-	;jp z, end_deltaX
-	;jp z, end_bresenham
-	jp z, end_bresenham
-	;break out of loop if the two match
 
-
+	;ATTENTION
+	;error, for some reason line_x1 is getting changed  by odd values
+	
+	;seems like something odd happening to D of DE
+	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;plot a pixel x1, y1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -59,36 +50,55 @@ deltaYWhile:	;$8151
 ;plot a pixel x1, y1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+	call compareX1X2	;call $8062
+	;break out of loop if the two match
 
 fractionYLoop:
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;if (fraction >= 0)
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	ld HL, (fraction)
+	ld HL, (fraction)	;fraction is 16 bit
 	ld DE, 0000
 	xor A
 	sbc HL, DE				;compare the 2
 	jp m, fractionY_smaller	;HL is smaller
+	;sign flag ON
+	
+	
 	;jp p, fractionX_larger	;HL is larger
+	;sign flag OFF
 	
 	fractionY_larger:
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;xx1 += stepx;
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	ld A, 00
-	ld D, A
-	ld A, (stepX)
-	ld E, A
-	ld HL, (line_x1)
-	add HL, DE
-	ld (line_x1), HL
+	;ld A, 00
+	;xor A
+	;ld D, A
+	;ld A, (stepX)
+	;ld E, A
+	;ld HL, (line_x1)
+	;add HL, DE
+	;ld (line_x1), HL
 
+	;ATTENTION, I believe the above routine is a problem
+	
+	ld A, (stepX)
+	ld HL, (line_x1)
+	add A, L
+	ld L, A
+	ld (line_x1), HL
+	
+	
+	
+	
+	
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;fraction -= delta_y;
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;deltaY
-	ld DE, (deltaY)
 	ld HL, (fraction)
+	ld DE, (deltaY)	
 	sbc HL, DE
 	ld (fraction), HL
 	
@@ -100,14 +110,27 @@ fractionY_smaller:
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;yy1 += stepy;
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	ld HL, (line_y1)
-	ld A, 00
-	ld D, A
-	ld A, (stepY)
-	ld E, A
-	add HL, DE
-	ld (line_y1), HL
+	;ld HL, (line_y1)
+	;ld A, 00
+	;ld D, A
+	;ld A, (stepY)
+	;ld E, A
+	;add HL, DE
+	;ld (line_y1), HL
 
+	;ATTENTION, I believe the above routine is a problem
+	
+	ld A, (stepY)
+	ld HL, (line_y1)
+	add A, L
+	ld L, A
+	ld (line_y1), HL
+	
+	
+	
+	
+	
+	
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;fraction += delta_y1;
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -116,6 +139,6 @@ fractionY_smaller:
 	add HL, DE
 	ld (fraction), HL
 
-
-
 	jr deltaYWhile
+	
+	
