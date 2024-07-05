@@ -37,6 +37,11 @@ deltaY_case:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 deltaYWhile:
 
+	ld HL, (line_y1)
+	ld DE, (line_y2)
+	sbc HL, DE
+	jp z, end_bresenham
+	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;plot a pixel x1, y1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -44,11 +49,6 @@ deltaYWhile:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;plot a pixel x1, y1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-	ld HL, (line_y1)
-	ld DE, (line_y2)
-	sbc HL, DE
-	jp z, end_bresenham
 
 fractionYLoop:
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

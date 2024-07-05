@@ -37,6 +37,11 @@ deltaX_case
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 deltaXWhile:
 
+	ld HL, (line_x1)
+	ld DE, (line_x2)
+	sbc HL, DE
+	jp z, end_bresenham
+	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;plot a pixel x1, y1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -44,11 +49,6 @@ deltaXWhile:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;plot a pixel x1, y1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-	ld HL, (line_x1)
-	ld DE, (line_x2)
-	sbc HL, DE
-	jp z, end_bresenham
 
 fractionXLoop:
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
