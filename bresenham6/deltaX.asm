@@ -1,4 +1,4 @@
-deltaX_case:		;$80CE
+deltaX_case:		;$80D2
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	if (delta_x > delta_y)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -37,11 +37,6 @@ deltaX_case:		;$80CE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 deltaXWhile:	;$80DF
 
-	;ATTENTION
-	;error, for some reason line_x1 is getting changed  by odd values
-	
-	;seems like something odd happening to D of DE
-	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;plot a pixel x1, y1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -50,8 +45,14 @@ deltaXWhile:	;$80DF
 ;plot a pixel x1, y1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	
-	call compareX1X2	;call $8062
+	;call compareX1X2	;call $8062
 	;break out of loop if the two match
+	
+	;added
+	ld HL, (line_x1)
+	ld DE, (line_x2)
+	sbc HL, DE
+	jp z, endless_F
 
 fractionXLoop:			;$80E5
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -72,25 +73,12 @@ fractionX_larger:		;$80F1
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;yy1 += stepy;
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	;ld A, 00
-	;xor A	
-	;ld D, A
-	;ld A, (stepY)
-	;ld E, A
-	;ld HL, (line_y1)
-	;add HL, DE
-	;ld (line_y1), HL
-	
-	;ATTENTION, I believe the above routine is a problem
 	
 	ld A, (stepY)		;stepY is 8 bit
 	ld HL, (line_y1)	;line_y1 is 16 bit
 	add A, L
 	ld L, A
 	ld (line_y1), HL	;line_y1 is 16 bit
-	
-	
-	
 	
 
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -110,26 +98,11 @@ fractionX_smaller:		;$810A
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;xx1 += stepx;
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	;ld HL, (line_x1)
-	;ld A, 00
-	;ld D, A
-	;ld A, (stepX)		;stepX is 8 bit
-	;ld E, A
-	;add HL, DE
-	;ld (line_x1), HL
-	
-	;ATTENTION, I believe the above routine is a problem
-	
 	ld A, (stepX)		;stepX is 8 bit
 	ld HL, (line_x1)	;line_x1 is 16 bit
 	add A, L
 	ld L, A
 	ld (line_x1), HL	;line_x1 is 16 bit
-	
-	
-	
-	
-	
 
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;fraction += delta_y1;

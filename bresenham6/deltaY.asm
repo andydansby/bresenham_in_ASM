@@ -1,4 +1,4 @@
-deltaY_case:			;$8122
+deltaY_case:			;$8126
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	if (delta_y >= delta_x)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -37,11 +37,6 @@ deltaY_case:			;$8122
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 deltaYWhile:	;$8151
 
-	;ATTENTION
-	;error, for some reason line_x1 is getting changed  by odd values
-	
-	;seems like something odd happening to D of DE
-	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;plot a pixel x1, y1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -50,8 +45,14 @@ deltaYWhile:	;$8151
 ;plot a pixel x1, y1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-	call compareX1X2	;call $8062
+	;call compareX1X2	;call $8062
 	;break out of loop if the two match
+	
+	;added
+	ld HL, (line_y1)
+	ld DE, (line_y2)
+	sbc HL, DE
+	jp z, endless_F
 
 fractionYLoop:
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -72,27 +73,14 @@ fractionYLoop:
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;xx1 += stepx;
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	;ld A, 00
-	;xor A
-	;ld D, A
-	;ld A, (stepX)
-	;ld E, A
-	;ld HL, (line_x1)
-	;add HL, DE
-	;ld (line_x1), HL
 
-	;ATTENTION, I believe the above routine is a problem
-	
 	ld A, (stepX)
 	ld HL, (line_x1)
 	add A, L
 	ld L, A
 	ld (line_x1), HL
 	
-	
-	
-	
-	
+
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;fraction -= delta_y;
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -110,27 +98,12 @@ fractionY_smaller:
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;yy1 += stepy;
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	;ld HL, (line_y1)
-	;ld A, 00
-	;ld D, A
-	;ld A, (stepY)
-	;ld E, A
-	;add HL, DE
-	;ld (line_y1), HL
-
-	;ATTENTION, I believe the above routine is a problem
-	
 	ld A, (stepY)
 	ld HL, (line_y1)
 	add A, L
 	ld L, A
 	ld (line_y1), HL
-	
-	
-	
-	
-	
-	
+
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	;fraction += delta_y1;
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
