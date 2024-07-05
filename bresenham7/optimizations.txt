@@ -1,0 +1,20 @@
+C:\z80_optimizer\line6>java -jar mdl2-4.jar -cpu z80 main.asm -dialect pasmo -so -asm output-mdl.asm
+
+INFO: Search-based optimization in bresenham.asm#29: replace xor a; sbc hl, de with ld a, d; xor h (1 bytes, 11 t-states saved)
+
+INFO: Search-based optimization in bresenham.asm#67: replace xor a; sbc hl, de with ld a, h; xor d (1 bytes, 11 t-states saved)
+
+INFO: Search-based optimization in bresenham.asm#66: replace ld de, 0; ld a, h with ld a, h; ld d, 0 (1 bytes, 3 t-states saved)
+
+INFO: Search-based optimization in deltaX.asm#63: replace xor a; sbc hl, de with ld a, d; xor h (1 bytes, 11 t-states saved)
+
+INFO: Search-based optimization in deltaX.asm#62: replace ld de, 0; ld a, d with xor a (3 bytes, 10 t-states saved)
+
+INFO: Search-based optimization in deltaY.asm#63: replace xor a; sbc hl, de with ld a, d; xor h (1 bytes, 11 t-states saved)
+
+INFO: Search-based optimization in deltaY.asm#62: replace ld de, 0; ld a, d with xor a (3 bytes, 10 t-states saved)
+
+
+
+DIGGEST: SearchBasedOptimizer: 7 optimizations applied, 11 bytes, 67 t-states saved.
+INFO: mdl optimization summary: 11 bytes, 67 t-states saved. Search-based optimizer optimizations: 7.
