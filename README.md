@@ -24,5 +24,5 @@ Version 6 is a different algorythm, smaller than versions 1-3
 
 ** Version 6 is 406 bytes
 
-** Versio0n 7 is 396 bytes
+** Version 7 is 396 bytes
 
