@@ -11,18 +11,18 @@ Versions 1 to 3 are the same algorythm with each higher version a more optimized
 ** Version 3 is 443 bytes
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Versions 4 and 5 is a different algorythm altogether which are considerbly smaller than Versions 1-3
 
-Versions 4 and 5 are different algorythms altogether which are considerbly smaller than Versions 1-3
+** Version 4 is 406 bytes
 
-** Version 4 is 339 bytes
-
-** Version 5 is 323 bytes
+** Version 5 is 396 bytes
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-Version 6 is a different algorythm, smaller than versions 1-3
 
-** Version 6 is 406 bytes
+Versions 6 to 8 is a different algorythm altogether which are considerbly smaller than Versions 1-3
 
-** Version 7 is 396 bytes
+** Version 6 is 339 bytes
+
+** Version 7 is 323 bytes
 
