@@ -27,3 +27,4 @@ Versions 6 to 8 is a different algorythm altogether which are considerbly smalle
 
 ** Version 7 is 323 bytes
 
+** Version 8 is 312 bytes
