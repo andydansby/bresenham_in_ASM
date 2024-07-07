@@ -1,6 +1,6 @@
 # bresenham_in_ASM
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 This is a 16 bit version of Bresenham Line routine
 
@@ -15,7 +15,8 @@ but for my purposes, I'd rather not. This is because I'm going to substute with 
 point routine to read pixels.
 
 ** Futher note, some of these routines have bugs in them, I'll be working them out eventually.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
